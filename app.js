@@ -2,7 +2,9 @@ const entrada = document.getElementById("amigo");
 const listaAmigos = document.getElementById("listaAmigos");
 const resultadoSorteio = document.getElementById("resultado");
 
-const listaNomes = [];
+let listaNomes = [];
+
+exibirLista();
 
 function adicionarAmigo(){
     const nomeAmigo = entrada.value;
@@ -18,8 +20,17 @@ function adicionarAmigo(){
         listaNomes.push(nomeFormatado);
     }
     entrada.value = "";
-    resultadoSorteio.innerHTML = "";
+    resultadoSorteio.classList.add("hidden");
+    exibirLista();
     listarAmigos();
+}
+
+function exibirLista(){
+    if(listaNomes.length === 0){
+        listaAmigos.classList.add("hidden");
+    }else{
+        listaAmigos.classList.remove("hidden")
+    }
 }
 
 function listarAmigos(){
@@ -35,10 +46,9 @@ function listarAmigos(){
 function sortearAmigo(){
     const tamanhoLista = listaNomes.length;
     const indice = Math.floor(Math.random() * tamanhoLista);
-    console.log(indice,listaNomes)
     const nomeSorteeado = listaNomes[indice];
-    listaAmigos.innerHTML = "";
-    resultadoSorteio.innerHTML = "O Amigo secreto é:\n" + nomeSorteeado;
-
+    listaAmigos.classList.add("hidden");
+    resultadoSorteio.innerHTML = "O Amigo secreto é: " + nomeSorteeado;
+    resultadoSorteio.classList.remove("hidden");
 }
 

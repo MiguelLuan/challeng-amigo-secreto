@@ -128,10 +128,20 @@ button {
 /* Listas */
 ul {
     list-style-type: none;
+    text-align: center;
     color: var(--color-text);
     font-family: "Inter", sans-serif;
     font-size: 18px;
     margin: 20px 0;
+}
+
+#listaAmigos{
+    max-height: 120px;
+    min-width: 100px;
+    padding: 10px;
+    overflow-y: auto;
+    border: 1px solid var(--color-tertiary);
+    border-radius: 10px;
 }
 
 .result-list {
@@ -159,4 +169,8 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+.hidden{
+    display: none;
 }
