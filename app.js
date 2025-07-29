@@ -1,5 +1,6 @@
 const entrada = document.getElementById("amigo");
 const listaAmigos = document.getElementById("listaAmigos");
+const resultadoSorteio = document.getElementById("resultado");
 
 const listaNomes = [];
 
@@ -17,7 +18,7 @@ function adicionarAmigo(){
         listaNomes.push(nomeFormatado);
     }
     entrada.value = "";
-    console.log(listaNomes);
+    resultadoSorteio.innerHTML = "";
     listarAmigos();
 }
 
@@ -30,3 +31,14 @@ function listarAmigos(){
     }
 
 }
+
+function sortearAmigo(){
+    const tamanhoLista = listaNomes.length;
+    const indice = Math.floor(Math.random() * tamanhoLista);
+    console.log(indice,listaNomes)
+    const nomeSorteeado = listaNomes[indice];
+    listaAmigos.innerHTML = "";
+    resultadoSorteio.innerHTML = "O Amigo secreto é:\n" + nomeSorteeado;
+
+}
+
