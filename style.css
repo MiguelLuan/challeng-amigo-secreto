@@ -42,6 +42,7 @@ body {
 /* Seção de entrada */
 .input-section {
     flex: 60%;
+    gap: 20px;
     background-color: var(--color-secondary);
     border: 1px solid #000;
     border-radius: 64px 64px 0 0;
@@ -76,7 +77,7 @@ body {
     justify-content: center;
     width: 100%;
     max-width: 600px;
-    margin-top: 20px;
+    /*margin: 20px 0px;*/
 }
 
 .input-name {
@@ -88,7 +89,9 @@ body {
 }
 
 .button-container {
-    width: 300px;
+    width: 400px;
+    /*margin-top: 20px;*/
+    display: flex;
     justify-content: center;
 }
 
@@ -132,7 +135,6 @@ ul {
     color: var(--color-text);
     font-family: "Inter", sans-serif;
     font-size: 18px;
-    margin: 20px 0;
 }
 
 #listaAmigos{
@@ -149,7 +151,6 @@ li {
 }
 
 .result-list {
-    margin-top: 15px;
     color: #05DF05;
     font-size: 22px;
     font-weight: bold;
@@ -160,11 +161,13 @@ li {
 .button-draw {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 75%;
     padding: 10px 40px;
     color: var(--color-white);
     background-color: var(--color-button);
     font-size: 16px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .button-draw img {
@@ -173,6 +176,20 @@ li {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+.button-reset{
+    width: 25%;
+    padding: 0;
+    text-align: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: var(--color-tertiary);
+    color: var(--color-text);
+}
+
+.button-reset:hover{
+    background-color: #a1a1a1;
 }
 
 .hidden{
