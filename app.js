@@ -1,8 +1,10 @@
 const entrada = document.getElementById("amigo");
 const listaAmigos = document.getElementById("listaAmigos");
 const resultadoSorteio = document.getElementById("resultado");
+const botaoSortear = document.getElementById("sortear");
 
-let listaNomes = [];
+let listaNomesAdicionados = [];
+let listaNomesSorteados = [];
 
 exibirLista();
 
@@ -16,8 +18,12 @@ function adicionarAmigo(){
         .map( palavra => palavra[0].toUpperCase() + palavra.slice(1).toLowerCase())
         .join(" ");
     
-    if(!listaNomes.includes(nomeFormatado)){
-        listaNomes.push(nomeFormatado);
+    if(!listaNomesAdicionados.includes(nomeFormatado)){
+        listaNomesAdicionados.push(nomeFormatado);
+    }
+
+    if (listaNomesAdicionados.length > 0){
+        botaoSortear.removeAttribute("disabled");
     }
     entrada.value = "";
     resultadoSorteio.classList.add("hidden");
@@ -26,7 +32,7 @@ function adicionarAmigo(){
 }
 
 function exibirLista(){
-    if(listaNomes.length === 0){
+    if(listaNomesAdicionados.length === 0){
         listaAmigos.classList.add("hidden");
     }else{
         listaAmigos.classList.remove("hidden")
@@ -35,7 +41,7 @@ function exibirLista(){
 
 function listarAmigos(){
     listaAmigos.innerHTML = "";
-    for(let nome of listaNomes){
+    for(let nome of listaNomesAdicionados){
         const amigo = document.createElement("li");
         amigo.innerHTML = nome;
         listaAmigos.appendChild(amigo);
@@ -44,11 +50,23 @@ function listarAmigos(){
 }
 
 function sortearAmigo(){
-    const tamanhoLista = listaNomes.length;
+
+    const tamanhoLista = listaNomesAdicionados.length;
     const indice = Math.floor(Math.random() * tamanhoLista);
-    const nomeSorteeado = listaNomes[indice];
+    const nomeSorteado = listaNomesAdicionados[indice];
+
+    if(listaNomesAdicionados.length === listaNomesSorteados.length){
+        resultadoSorteio.innerHTML = "Todos os amigos secretos já foram sorteados!";
+        botaoSortear.setAttribute("disabled");
+        return;
+    }else if(listaNomesSorteados.includes(nomeSorteado)) {
+        return sortearAmigo();
+    }
+
+    listaNomesSorteados.push(nomeSorteado);
+
     listaAmigos.classList.add("hidden");
-    resultadoSorteio.innerHTML = "O Amigo secreto é: " + nomeSorteeado;
+    resultadoSorteio.innerHTML = "O Amigo secreto é: " + nomeSorteado;
     resultadoSorteio.classList.remove("hidden");
 }
 
