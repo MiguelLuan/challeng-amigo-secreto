@@ -20,7 +20,7 @@
         <section class="input-section">
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
             <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
+                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome" maxlength="48">
                 <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
             </div>
            
@@ -35,8 +35,12 @@
                 <button id="resetar" class="button-reset" onclick="resetarLista()" disabled>
                     Reiniciar
                 </button>
+                <button id="ocultar" class="button-eye-hide" onclick="ocultarResultado()" disabled>
+                    <img src="assets/visibility_lock_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Ícone para ocultar">
+                </button>
             </div>
         </section>
+        
     </main>
 
     <script src="app.js" defer></script>

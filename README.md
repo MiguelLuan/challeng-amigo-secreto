@@ -48,10 +48,18 @@
 * **Nome em Destaque:** O nome do amigo secreto sorteado é exibido de forma clara.
 * **Sem Repetições:** O mesmo amigo não será sorteado mais de uma vez na mesma rodada.
 
+### 🙈 Ocultação do Resultado
+
+* **Privacidade Garantida:** Após visualizar o nome sorteado, o usuário pode ocultá-lo clicando no botão "Ocultar Resultado", garantindo que ninguém mais veja acidentalmente.
+
+* **Segurança Extra:** Além de esconder visualmente, o nome sorteado é removido do HTML, impedindo acesso até mesmo via inspeção de código.
+
+* **Fluxo Controlado:** O botão de ocultar só aparece após o sorteio e é desativado automaticamente quando o resultado é escondido.
+
 ### ⚙️ Gerenciamento de Estado
 
 * **Mensagens Dinâmicas:** O sistema fornece feedback contextual ao usuário, como alertas de validação e mensagens de conclusão do sorteio.
-* **Botões Inteligentes:** Os botões "Sortear" e "Resetar" possuem estados inteligentes, sendo ativados ou desativados conforme o contexto 
+* **Botões Inteligentes:** Os botões "Sortear" e "Resetar" possuem estados inteligentes, sendo ativados ou desativados conforme o contexto. 
 
 ### 🔒 Reinício Seguro
 

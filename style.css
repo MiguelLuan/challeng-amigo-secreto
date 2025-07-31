@@ -88,7 +88,7 @@ body {
 }
 
 .button-container {
-    width: 400px;
+    width: 450px;
     display: flex;
     justify-content: center;
 }
@@ -176,14 +176,25 @@ li {
     width: 25%;
     padding: 0;
     text-align: center;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 0;
     background-color: var(--color-tertiary);
     color: var(--color-text);
 }
 
 .button-reset:hover{
     background-color: #a1a1a1;
+}
+
+.button-eye-hide{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.button-eye-hide:hover{
+    background-color: var(--color-primary);
 }
 
 .hidden{

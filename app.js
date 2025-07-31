@@ -3,6 +3,7 @@ const listaAmigos = document.getElementById("listaAmigos");
 const resultadoSorteio = document.getElementById("resultado");
 const botaoSortear = document.getElementById("sortear");
 const botaoResetar = document.getElementById("resetar");
+const botaoOcultar = document.getElementById("ocultar");
 
 let amigosAdicionados = [];
 let amigosSorteados = [];
@@ -69,9 +70,14 @@ function sortearAmigo(){
     if(amigosAdicionados.length < 2){
         alert("Adicione pelo menos mais um amigo secreto!");
         return ;
-    }else if(amigosAdicionados.length === amigosSorteados.length){
+    }
+    
+    resultadoSorteio.classList.remove("hidden");
+
+    if(amigosAdicionados.length === amigosSorteados.length){
         resultadoSorteio.innerHTML = "Todos os amigos secretos já foram sorteados!";
         botaoSortear.setAttribute("disabled",true);
+        botaoOcultar.setAttribute("disabled",true);
         return;
     }else if(amigosSorteados.includes(nomeSorteado)) {
         return sortearAmigo();
@@ -79,14 +85,16 @@ function sortearAmigo(){
 
     amigosSorteados.push(nomeSorteado);
 
-    listaAmigos.classList.add("hidden");
     resultadoSorteio.innerHTML = "O Amigo secreto é: " + nomeSorteado;
-    resultadoSorteio.classList.remove("hidden");
+
+    botaoOcultar.removeAttribute("disabled");
+    
 }
 
 function resetarLista(){
     resultadoSorteio.classList.add("hidden");
     botaoSortear.setAttribute("disabled",true);
+    botaoOcultar.setAttribute("disabled",true);
     botaoResetar.setAttribute("disabled",true);
 
     amigosAdicionados = [];
@@ -95,4 +103,10 @@ function resetarLista(){
 
     exibirLista();
     listarAmigos();
+}
+
+function ocultarResultado(){
+    resultadoSorteio.classList.add("hidden");
+    resultadoSorteio.innerHTML = "";
+    botaoOcultar.setAttribute("disabled",true);
 }
