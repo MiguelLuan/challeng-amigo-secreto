@@ -1,10 +1,12 @@
 <h1 align="center" style="font-weight: bold;"> Amigo secreto 🤫🎁</h1>
 
-![Status](https://img.shields.io/badge/status-Concluido-green)
-![GitHub language count](https://img.shields.io/github/languages/count/MiguelLuan/challeng-amigo-secreto)
-![Last Commit](https://img.shields.io/github/last-commit/MiguelLuan/challeng-amigo-secreto)
-![License](https://img.shields.io/github/license/MiguelLuan/challeng-amigo-secreto)
-![Stars](https://img.shields.io/github/stars/MiguelLuan/challeng-amigo-secreto)
+<p align="center">
+  <img src="https://img.shields.io/badge/status-Concluido-green" alt="Status: Concluído"/>
+  <img src="https://img.shields.io/github/languages/count/MiguelLuan/challeng-amigo-secreto" alt="Contagem de Linguagens GitHub"/>
+  <img src="https://img.shields.io/github/last-commit/MiguelLuan/challeng-amigo-secreto" alt="Último Commit"/>
+  <img src="https://img.shields.io/github/license/MiguelLuan/challeng-amigo-secreto" alt="Licença"/>
+  <img src="https://img.shields.io/github/stars/MiguelLuan/challeng-amigo-secreto" alt="Estrelas"/>
+</p>
 
 <p align="center">
  <a href="#features">Funcionalidades</a> • 
