@@ -1,18 +1,18 @@
-const entrada = document.getElementById("amigo");
+const inputAmigo = document.getElementById("amigo");
 const listaAmigos = document.getElementById("listaAmigos");
 const resultadoSorteio = document.getElementById("resultado");
 const botaoSortear = document.getElementById("sortear");
 const botaoResetar = document.getElementById("resetar");
 
-let listaNomesAdicionados = [];
-let listaNomesSorteados = [];
+let amigosAdicionados = [];
+let amigosSorteados = [];
 
 exibirLista();
 
 function adicionarAmigo(){
-    const nomeAmigo = entrada.value;
+    const nomeAmigo = inputAmigo.value;
 
-    if(!Number.isNaN(Number(nomeAmigo))){
+    if(!/[A-Za-z]/.test(nomeAmigo)){
         alert("Adicione um nome válido!")
         return ;
     }
@@ -22,28 +22,28 @@ function adicionarAmigo(){
         .map( palavra => palavra[0].toUpperCase() + palavra.slice(1).toLowerCase())
         .join(" ");
     
-    if(!listaNomesAdicionados.includes(nomeFormatado)){
-        listaNomesAdicionados.push(nomeFormatado);
+    const nomeExistente = amigosAdicionados.some( amigo => amigo.split(" ").join("").toLowerCase() === nomeFormatado.split(" ").join("").toLowerCase())
+
+    if(!nomeExistente){
+        amigosAdicionados.push(nomeFormatado);
     }else{
         alert(`\"${nomeFormatado}\" já foi adicionado a lista de amigos secretos!`);
         return ;
     }
 
-    if (listaNomesAdicionados.length > 0){
+    if (amigosAdicionados.length > 0){
         botaoSortear.removeAttribute("disabled");
     }
-    entrada.value = "";
+    inputAmigo.value = "";
     resultadoSorteio.classList.add("hidden");
     botaoResetar.removeAttribute("disabled");
 
     exibirLista();
     listarAmigos();
-    console.log(listaNomesAdicionados,"\n",listaNomesSorteados)
-
 }
 
 function exibirLista(){
-    if(listaNomesAdicionados.length === 0){
+    if(amigosAdicionados.length === 0){
         listaAmigos.classList.add("hidden");
     }else{
         listaAmigos.classList.remove("hidden")
@@ -52,9 +52,9 @@ function exibirLista(){
 
 function listarAmigos(){
     listaAmigos.innerHTML = "";
-    for(let nome of listaNomesAdicionados){
+    for(let nome of amigosAdicionados){
         const amigo = document.createElement("li");
-        amigo.innerHTML = `${nome} <button onclick="apagarAmigo(event)">🗑️</button>`;
+        amigo.innerHTML = nome;
         listaAmigos.appendChild(amigo);
     }
 
@@ -62,53 +62,37 @@ function listarAmigos(){
 
 function sortearAmigo(){
 
-    const tamanhoLista = listaNomesAdicionados.length;
+    const tamanhoLista = amigosAdicionados.length;
     const indice = Math.floor(Math.random() * tamanhoLista);
-    const nomeSorteado = listaNomesAdicionados[indice];
+    const nomeSorteado = amigosAdicionados[indice];
 
-    if(listaNomesAdicionados.length === listaNomesSorteados.length){
+    if(amigosAdicionados.length < 2){
+        alert("Adicione pelo menos mais um amigo secreto!");
+        return ;
+    }else if(amigosAdicionados.length === amigosSorteados.length){
         resultadoSorteio.innerHTML = "Todos os amigos secretos já foram sorteados!";
         botaoSortear.setAttribute("disabled",true);
         return;
-    }else if(listaNomesSorteados.includes(nomeSorteado)) {
+    }else if(amigosSorteados.includes(nomeSorteado)) {
         return sortearAmigo();
     }
 
-    listaNomesSorteados.push(nomeSorteado);
+    amigosSorteados.push(nomeSorteado);
 
     listaAmigos.classList.add("hidden");
     resultadoSorteio.innerHTML = "O Amigo secreto é: " + nomeSorteado;
     resultadoSorteio.classList.remove("hidden");
-
-        console.log(listaNomesAdicionados,"\n",listaNomesSorteados)
-
 }
 
 function resetarLista(){
     resultadoSorteio.classList.add("hidden");
     botaoSortear.setAttribute("disabled",true);
     botaoResetar.setAttribute("disabled",true);
-    listaNomesAdicionados = [];
-    listaNomesSorteados = [];
-    entrada.value = "";
-    resultadoSorteio.classList.add("hidden");
+
+    amigosAdicionados = [];
+    amigosSorteados = [];
+    inputAmigo.value = "";
 
     exibirLista();
     listarAmigos();
 }
-
-function apagarAmigo(event){
-    const amigoDeletado = event.target.parentElement;
-    const listaAmigos = document.querySelectorAll("li")
-    const indiceAmgDeletado = Array.from(listaAmigos).indexOf(amigoDeletado);
-
-    if(indiceAmgDeletado !== -1){
-        listaNomesAdicionados.splice(indiceAmgDeletado,1);
-        listaNomesSorteados.pop(listaNomesAdicionados[indiceAmgDeletado]);
-    }
-    console.log(listaNomesAdicionados,"\n",listaNomesSorteados)
-    exibirLista();
-    listarAmigos();
-
-}
-

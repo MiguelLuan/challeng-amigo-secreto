@@ -133,7 +133,7 @@ ul {
 }
 
 #listaAmigos{
-    max-height: 150px;
+    max-height: 250px;
     min-width: 100px;
     padding: 10px;
     overflow-y: auto;
