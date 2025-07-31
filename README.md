@@ -7,11 +7,10 @@
 ![Stars](https://img.shields.io/github/stars/MiguelLuan/challeng-amigo-secreto)
 
 <p align="center">
- <a href="#tech">Tecnologias</a> • 
  <a href="#features">Funcionalidades</a> • 
+ <a href="#tech">Tecnologias</a> • 
  <a href="#requirements">Pré-requisitos</a> • 
  <a href="#application">Como rodar a aplicação</a> •
- <a href="#structure-folder">Estrutura de pastas</a> •
  <a href="#contribute">Desenvolvedor(es)</a> • 
  <a href="#license">Licença</a>
 </p>
@@ -27,6 +26,8 @@
 <p align="center">
         <img src="assets/tela-do-site.gif" alt="Image Example" width="700px">
 </p>
+
+---
 
 <h2 id="features">🧰 Funcionalidades</h2>
 
@@ -57,7 +58,9 @@
 * **Limpeza Completa:** A função de reiniciar limpa completamente o jogo, removendo todos os amigos adicionados e sorteados.
 * **Nova Rodada:** Após o reset, a aplicação está pronto para uma nova rodada de Amigo Secreto!
 
-<h2 id="tech">💻 Technologies</h2>
+---
+
+<h2 id="tech">💻 Tecnologias</h2>
 
 | Linguagem             | Finalidade                                                                |
 | --------------------- | ------------------------------------------------------------------------- |
@@ -66,11 +69,15 @@
 | **JavaScript (ES6+)** | Lógica para adicionar amigos, sortear o amigo secreto e controlar estados |
 
 
+---
+
 <h2 id="requirements">Pré-requisitos</h2>
 
 - [NodeJS](https://github.com/)
 - [Git](https://github.com)
 - Editor de código como [VSCode](https://code.visualstudio.com/)
+
+---
 
 <h2 id="application">Como rodar a aplicação ▶️</h2>
 
@@ -96,27 +103,31 @@ code .
 
 5. Adicione os nomes dos amigos secretos, faça o sorteio e, se quiser, reinicie para começar de novo!
 
-<h2 id=structure-folder> Estrutura de pastas
+---
 
-<br/>
+## 🗂️ Estrutura de pastas
+
+```
+.
+├── assets/                  
+│   ├── amigo-secreto.png     
+│   ├── play-cicle_uotline.png            
+│   └── tela-do-site.gif          
+├── app.js                       
+├── index.html                   
+├── README.md                    
+└── style.css         
 
 ```
 
-    ├── assets/
-    │   ├── amigo-secreto.png        
-    │   ├── play-game.png            
-    │   └── reload-game.png          
-    ├── app.js                       
-    ├── index.html                   
-    ├── README.md                    
-    └── style.css         
-
-```
+---
 
 <h2 id="contribute">🧑‍💻 Desenvolvedor(es)</h2>
 
 | [<img src="https://avatars.githubusercontent.com/u/211078180?s=400&u=e42935c528efd7f3f727529e71286a5803fe4aa7&v=4" width=115><br><sub>Miguel Luan</sub>](https://github.com/MiguelLuan) |
 | :---: 
+
+---
 
 <h2 id="license">📝 Licença</h3>
 
