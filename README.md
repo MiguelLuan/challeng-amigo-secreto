@@ -73,8 +73,8 @@
 
 <h2 id="requirements">Pré-requisitos</h2>
 
-- [NodeJS](https://github.com/)
-- [Git](https://github.com)
+- [NodeJS](https://nodejs.org/pt)
+- [Git](https://git-scm.com/downloads)
 - Editor de código como [VSCode](https://code.visualstudio.com/)
 
 ---
